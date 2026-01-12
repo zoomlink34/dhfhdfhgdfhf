@@ -1,0 +1,30 @@
+body { margin: 0; background: #E0E0E0; font-family: sans-serif; overflow-x: hidden; }
+.classic-header { background: #fff; border-bottom: 2px solid #D4AF37; }
+
+/* পেমেন্ট ব্যাকগ্রাউন্ড কালার */
+.purchase-top-bar { background: #1a1a1a; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
+.binance-uid { background: #F3BA2F !important; color: #000 !important; font-weight: bold; border: none !important; }
+.usdt-addr { background: #26A17B !important; color: #fff !important; font-weight: bold; border: none !important; }
+.pay-btn { padding: 8px 15px; margin-right: 10px; cursor: pointer; border-radius: 4px; font-size: 12px; }
+
+/* সোশ্যাল মিডিয়া এক কর্নারে */
+.social-side-tray { position: absolute; right: 20px; top: 60px; display: flex; flex-direction: column; }
+.social-side-tray img { width: 18px; margin-bottom: 8px; transition: 0.3s; }
+.social-side-tray img:hover { transform: scale(1.3); }
+
+/* ফায়ার ও নাম */
+#fire-container { position: relative; width: 100%; height: 90px; text-align: center; }
+#fireCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+.site-name { font-size: 32px; color: #D4AF37; position: relative; z-index: 5; margin-top: 20px; }
+
+/* সাপোর্ট ও নোটিশ */
+.classic-nav { background: #FFCC00; padding: 10px; border: 1px solid #000; text-align: center; }
+.wa-icon { width: 20px; vertical-align: middle; margin-right: 5px; }
+.support-link { text-decoration: none; color: #000; font-weight: bold; font-size: 16px; }
+.payment-notice { font-size: 12px; color: #cc0000; font-weight: bold; margin: 5px 0 0 0; }
+
+/* ম্যাপ ডিজাইন */
+.content-frame { max-width: 1100px; margin: 20px auto; border: 3px solid #0056b3; background: #D3D3D3; }
+#pixel-viewport { width: 100%; height: 600px; position: relative; overflow: hidden; background: #C0C0C0; cursor: grab; }
+#pixel-viewport:active { cursor: grabbing; }
+#canvas-mover { transform-origin: 0 0; position: absolute; transition: transform 0.1s ease-out; }
