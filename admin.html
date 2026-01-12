@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head><title>Admin Panel</title></head>
+<body style="background:#111; color:#fff; padding:20px; font-family:sans-serif;">
+    <div id="auth" style="text-align:center; margin-top:100px;">
+        <h3>Admin Access</h3>
+        <input type="password" id="p" placeholder="Password"> <button onclick="login()">Enter</button>
+    </div>
+    <div id="main" style="display:none;">
+        <div style="display:flex; justify-content:space-between;">
+            <h2>PENDING ORDERS</h2>
+            <a href="index.html" style="color:#FFCC00; text-decoration:none; font-weight:bold; padding:5px 15px; border:1px solid #FFCC00;">← SITE</a>
+        </div>
+        <div id="list"></div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+    <script>
+        firebase.initializeApp({databaseURL: "https://m-legacy-5cf2b-default-rtdb.firebaseio.com/"});
+        function login(){ if(document.getElementById('p').value==='admin123'){document.getElementById('auth').style.display='none';document.getElementById('main').style.display='block';load();}else alert('Wrong!'); }
+        function load(){
+            firebase.database().ref('pending_orders').on('value', s => {
+                const l = document.getElementById('list'); l.innerHTML = "";
+                const d = s.val(); if(d) Object.keys(d).forEach(id => {
+                    l.innerHTML += `<div style="border:1px solid #D4AF37; padding:15px; margin:10px;">ID: ${id} | Name: ${d[id].name} <button onclick="app('${id}')">Approve</button></div>`;
+                });
+            });
+        }
+        function app(id){ firebase.database().ref('pending_orders/'+id).once('value', s => { firebase.database().ref('pixels/'+id).set(s.val()).then(()=>firebase.database().ref('pending_orders/'+id).remove()); }); }
+    </script>
+</body>
+</html>
